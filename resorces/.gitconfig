@@ -1,0 +1,23 @@
+[interactive]
+  diffFilter = delta --color-only --features=interactive
+
+[delta]
+    side-by-side = true
+    features = decorations
+    plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
+    syntax-theme = Monokai Extended
+    navigate = true
+
+[delta "interactive"]
+    keep-plus-minus-markers = true
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+

@@ -1,0 +1,18 @@
+
+#+TITLE: Setup Scripts for Ubuntu Mate 23.10
+
+* What this?
+
+This is a persolanl set of script files for setting up
+Ubuntu Mate 23.10.
+
+If you like this, be free to use it!
+
+* How to use this
+
+: sudo apt install git-core
+
+
+* License
+MIT.
+

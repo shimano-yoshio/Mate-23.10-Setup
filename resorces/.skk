@@ -1,0 +1,134 @@
+;; 辞書設定
+(setq skk-large-jisyo "~/.spacemacs.d/skk-dic/SKK-JISYO.L.utf8")
+(setq skk-jisyo "~/.skk-jisyo.utf8")
+(setq skk-jisyo-code 'utf-8)
+
+(setq skk-rom-kana-rule-list
+      (append skk-rom-kana-rule-list
+              '(
+                ;;                ("!" nil "!")
+                ;;                ("," nil ",")
+                ("." nil "。")
+;;                (":" nil ":")
+                ;;                (";" nil ";")
+                ;;                ("?" nil "?")
+                ("(" nil "（")
+                (")" nil "）")
+                )))
+
+
+;;(setq skk-use-kana-keyboard t)
+;;(setq skk-kanagaki-keyboard-type 'omelet-jis)
+
+
+(setq skk-search-prog-list
+      '((skk-search-kakutei-jisyo-file skk-kakutei-jisyo 10000 t)
+        (skk-search-jisyo-file skk-initial-search-jisyo 10000 t)
+        (skk-search-jisyo-file skk-jisyo 0 t)
+        (skk-okuri-search)
+        (skk-search-jisyo-file skk-large-jisyo 10000)
+        (skk-search-server skk-aux-large-jisyo 10000)
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.JIS2.utf8" 10000)
+
+        ;; JIS X 0213
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.JIS3_4.utf8" 10000)
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.JIS2004.utf8" 10000)
+
+        ;; 異体字
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.itaiji.utf8" 10000)
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.itaiji.JIS3_4.utf8" 10000)
+        ;;
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.pubdic+.utf8" 10000)
+
+        ;; 郵便番号
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.office.zipcode.utf8" 10000)
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.zipcode.utf8" 10000)
+
+        ;;人名、特に日本人の姓名を収録した辞書
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.jinmei.utf8" 10000)
+
+        ;;新聞に掲載された人物のフルネームを、「当時の」肩書き付きで収めた辞書
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.fullname.utf8" 10000)
+
+        ;;日本郵政公社のページにあるデータを「地名辞典」に加工した辞書
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.geo.utf8" 10000)
+
+        ;;芸能・音楽・企業・アニメなど、geo辞書にもjinmei辞書にも当てはまらない固有名詞を集めた辞書
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.propernoun.utf8" 10000)
+
+        ;;駅名・路線名・鉄道会社名およびその他の鉄道用語の専門辞書
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.station.utf8" 10000)
+        ;;沖縄辞書
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.okinawa.utf8" 10000)
+
+        ;;弁護士 小松 弘先生による GPL な法律辞書
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.law.utf8" 10000)
+
+        ;;中国、台湾の地名ばかりを集めた辞書
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.china_taiwan.utf8" 0)
+
+        ;;大量の略語エントリを含んでいる辞書
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.assoc.utf8" 0)
+
+        ;;英数文字を見出しにした変換(abbrev)によって英和変換を実現するための辞書
+        ;;(skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.edict.utf8" 10000)
+
+        ;;交ぜ書き辞書
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.mazegaki.utf8" 0)
+
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.lisp.utf8" 10000)
+        (skk-search-jisyo-file "~/.spacemacs.d/skk-dic/SKK-JISYO.emoji.utf8" 10000)
+        ))
+
+
+;; 句読点
+;;'jp → 「。、」
+;;'en → 「．，」
+;;'jp-en → 「。，」
+;; 'en-jp → 「．、」
+;;(setq-default skk-kutouten-type 'en)
+;;(setq-default skk-kutouten-type 'jp-en)
+(setq-default skk-kutouten-type 'jp)
+
+;; 動的な補完を使う
+(setq skk-dcomp-activate t)
+(setq skk-dcomp-multiple-activate t)
+
+;; 送りあり変換を送りなし変換と同じ操作でできるようにする
+(setq skk-auto-okuri-process t)
+
+;; 見出し語と送り仮名がマッチした候補を優先して表示
+(setq skk-henkan-strict-okuri-precedence t)
+
+;; カタカナ語を変換候補に加える。1、2 を好みで選んでください
+;; 例 1) 単純にカタカナに変換したものを加える
+(setq skk-search-prog-list
+      (skk-nunion skk-search-prog-list
+                  '((skk-search-katakana))))
+;; 例 2) 全角カタカナの候補と半角カタカナの候補を共に加える
+;; (setq skk-search-prog-list
+;;       (skk-nunion skk-search-prog-list
+;;		     '((skk-search-katakana t))))
+
+;; サ行変格活用の動詞も送りあり変換出来るようにする
+;; (setq skk-search-prog-list
+;;       (skk-nunion skk-search-prog-list
+;;		     '((skk-search-sagyo-henkaku))))
+
+
+;; 閉じ括弧の自動入力
+(setq skk-auto-insert-paren t)
+
+;;; インクリメンタルサーチ
+;; t: 前回のインクリメンタルサーチモード
+(setq skk-isearch-use-previous-mode t)
+
+;;; azik
+(setq skk-use-azik t)
+
+
+
+
+
+
+
